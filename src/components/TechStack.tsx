@@ -31,9 +31,9 @@ const TechStack = () => {
 										<Icons.react className='inline w-8 h-8 mr-4' />
 									}
 								>
-									I've been using React extensively since the
-									beginning of my web development journey, and
-									I truly enjoy it.
+									I{"'"}ve been using React extensively since
+									the beginning of my web development journey,
+									and I truly enjoy it.
 								</TechStackItem>
 								<TechStackItem
 									title='TypeScript'
@@ -44,7 +44,7 @@ const TechStack = () => {
 									No other language has made me feel as
 									productive as TypeScript. I love the type
 									safety. It make the code easier to maintain,
-									and it's a joy to work with.
+									and it{"'"}s a joy to work with.
 								</TechStackItem>
 								<TechStackItem
 									title='Next.js'
@@ -53,8 +53,8 @@ const TechStack = () => {
 									}
 								>
 									Next.js is my go-to framework for building
-									React apps. It's easy to use, and i find the
-									new app router very intuitive.
+									React apps. It{"'"}s easy to use, and i find
+									the new app router very intuitive.
 								</TechStackItem>
 								<TechStackItem
 									title='Tailwind CSS'

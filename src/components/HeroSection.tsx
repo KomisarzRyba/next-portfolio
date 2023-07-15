@@ -11,7 +11,7 @@ const HeroSection = () => {
 			<div className='h-full flex items-center justify-around'>
 				<div className='space-y-2'>
 					<h1 className='text-8xl'>
-						hi there! I'm{' '}
+						hi there! I{"'"}m{' '}
 						<TooltipProvider>
 							<Tooltip
 								disableHoverableContent
@@ -27,7 +27,7 @@ const HeroSection = () => {
 						</TooltipProvider>
 					</h1>
 					<h2 className='text-4xl font-light'>
-						I'm a software developer
+						I{"'"}m a software developer
 					</h2>
 					<h2 className='text-lg font-extralight'>
 						...and this is my slice of the internet 🍕

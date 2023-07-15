@@ -10,7 +10,7 @@ const AboutSection = () => {
 					<h2 className='text-4xl pb-2'>a little about me</h2>
 				</div>
 				<p className='py-4'>
-					I'm a passionate full-stack developer with a knack for
+					I{"'"}m a passionate full-stack developer with a knack for
 					creating functional, and impactful experiences. With a
 					vibrant blend of creativity and technical expertise, I
 					thrive on turning ideas into reality and crafting solutions

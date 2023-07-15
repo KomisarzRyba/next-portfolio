@@ -13,7 +13,7 @@ const TechStackItem: React.FC<PropsWithChildren<TechStackItemProps>> = ({
 	children,
 }) => {
 	return (
-		<Card className='my-2 first:mt-0 last:mb-0'>
+		<Card className='my-2 first:mt-0 last:mb-0 bg-card'>
 			<CardHeader>
 				<CardTitle>
 					{icon}
