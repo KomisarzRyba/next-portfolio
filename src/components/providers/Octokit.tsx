@@ -1,19 +1,12 @@
-'use client';
-
-import { Octokit } from '@octokit/rest';
+import useOctokit from '@/hooks/useOctokit';
 import React, { PropsWithChildren, createContext } from 'react';
 
-const octokit = new Octokit({
-	auth: process.env.GITHUB_TOKEN,
-	userAgent: 'portfolio-page',
-});
-export const OctokitContext = createContext<Octokit>(octokit);
-
 const OctokitProvider: React.FC<PropsWithChildren> = ({ children }) => {
+	const { octokit, octokitContext } = useOctokit();
 	return (
-		<OctokitContext.Provider value={octokit}>
+		<octokitContext.Provider value={octokit}>
 			{children}
-		</OctokitContext.Provider>
+		</octokitContext.Provider>
 	);
 };
 

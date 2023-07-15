@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider } from './ThemeProvider';
 import OctokitProvider from './Octokit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 

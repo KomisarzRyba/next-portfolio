@@ -1,21 +1,28 @@
-import Link from 'next/link';
 import React, { PropsWithChildren } from 'react';
+import { Button } from './ui/button';
 
 interface NavbarLinkProps {
-	href: string;
+	targetId: string;
 }
 
 const NavbarLink: React.FC<PropsWithChildren<NavbarLinkProps>> = ({
 	children,
-	href,
+	targetId,
 }) => {
 	return (
-		<Link
-			href={href}
-			className='text-muted-foreground hover:text-foreground'
+		<Button
+			variant='link'
+			className='text-muted-foreground hover:text-foreground text-xl font-light p-0'
+			onClick={() => {
+				const target = document.getElementById(targetId);
+				window.scrollTo({
+					top: target?.offsetTop,
+					behavior: 'smooth',
+				});
+			}}
 		>
 			{children}
-		</Link>
+		</Button>
 	);
 };
 

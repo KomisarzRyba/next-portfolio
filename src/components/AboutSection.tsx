@@ -3,11 +3,14 @@ import TechStack from './TechStack';
 
 const AboutSection = () => {
 	return (
-		<div className='container py-12 grid gap-12 grid-cols-1 md:grid-cols-2'>
-			<div id='about' className='text-lg leading-8'>
+		<div
+			id='about'
+			className='container py-12 grid gap-12 grid-cols-1 sm:grid-cols-2'
+		>
+			<div className='text-lg leading-8'>
 				<div className='flex items-center'>
 					<DotFilledIcon className='inline w-8 h-8 mr-4 text-muted-foreground' />
-					<h2 className='text-4xl pb-2'>a little about me</h2>
+					<h2 className='text-4xl pb-2'>about me</h2>
 				</div>
 				<p className='py-4'>
 					I{"'"}m a passionate full-stack developer with a knack for

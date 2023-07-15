@@ -7,7 +7,7 @@ import {
 
 const HeroSection = () => {
 	return (
-		<div className='container h-[95vh] bg-secondary'>
+		<div className='container h-screen bg-secondary'>
 			<div className='h-full flex items-center justify-around'>
 				<div className='space-y-2'>
 					<h1 className='text-8xl'>
@@ -30,7 +30,8 @@ const HeroSection = () => {
 						I{"'"}m a software developer
 					</h2>
 					<h2 className='text-lg font-extralight'>
-						...and this is my slice of the internet 🍕
+						...and this is my slice of the internet{' '}
+						<span className='text-2xl'>🍕</span>
 					</h2>
 				</div>
 			</div>
