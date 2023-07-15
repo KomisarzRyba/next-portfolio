@@ -3,7 +3,7 @@ import TechStack from './TechStack';
 
 const AboutSection = () => {
 	return (
-		<div className='container py-12 grid gap-4 grid-cols-1 sm:grid-cols-2'>
+		<div className='container py-12 grid gap-12 grid-cols-1 md:grid-cols-2'>
 			<div id='about' className='text-lg leading-8'>
 				<div className='flex items-center'>
 					<DotFilledIcon className='inline w-8 h-8 mr-4 text-muted-foreground' />
