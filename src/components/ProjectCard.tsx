@@ -11,16 +11,21 @@ import Link from 'next/link';
 import { buttonVariants } from './ui/button';
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
 
-interface ProjectCardProps {}
+interface ProjectCardProps {
+	title: string;
+	description?: string | null;
+}
 
-const ProjectCard: React.FC<ProjectCardProps> = ({}) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description }) => {
 	return (
-		<Card>
+		<Card className='h-full flex flex-col'>
 			<CardHeader>
-				<CardTitle>Title</CardTitle>
-				<CardDescription>Short description</CardDescription>
+				<CardTitle>{title}</CardTitle>
+				<CardDescription>{description}</CardDescription>
 			</CardHeader>
-			<CardContent>Content</CardContent>
+			<CardContent className='flex-grow'>
+				<p>Content</p>
+			</CardContent>
 			<CardFooter>
 				<div className='flex justify-start gap-2'>
 					<Link href={'/'} className={buttonVariants()}>

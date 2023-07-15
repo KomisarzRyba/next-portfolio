@@ -1,20 +1,40 @@
-import React from 'react';
-import ProjectCard from './ProjectCard';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from './ui/tooltip';
 
 const HeroSection = () => {
 	return (
-		<div className='container h-96'>
+		<div className='container h-[90vh] bg-accent'>
 			<div className='h-full flex items-center justify-around'>
 				<div className='space-y-2'>
-					<h1 className='text-7xl'>Hi there! I'm Antek</h1>
-					<h2 className='text-2xl'>
-						...and this is my slice of the internet
+					<h1 className='text-8xl'>
+						hi there! I'm{' '}
+						<TooltipProvider>
+							<Tooltip
+								disableHoverableContent
+								delayDuration={100}
+							>
+								<TooltipTrigger>Antek</TooltipTrigger>
+								<TooltipContent>
+									<p className='text-4xl p-4'>
+										👂: [aan-tech]
+									</p>
+								</TooltipContent>
+							</Tooltip>
+						</TooltipProvider>
+					</h1>
+					<h2 className='text-4xl font-light'>
+						I'm a software developer
+					</h2>
+					<h2 className='text-lg font-extralight'>
+						...and this is my slice of the internet 🍕
 					</h2>
 				</div>
 			</div>
-			<div className='flex justify-center gap-4'>
-				<ProjectCard />
-			</div>
+			{/* <ProjectList /> */}
 		</div>
 	);
 };

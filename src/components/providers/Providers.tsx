@@ -2,13 +2,24 @@
 
 import React from 'react';
 import { ThemeProvider } from 'next-themes';
+import OctokitProvider from './Octokit';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
+	const queryClient = new QueryClient();
 	return (
 		<>
-			<ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-				{children}
-			</ThemeProvider>
+			<QueryClientProvider client={queryClient}>
+				<OctokitProvider>
+					<ThemeProvider
+						attribute='class'
+						defaultTheme='system'
+						enableSystem
+					>
+						{children}
+					</ThemeProvider>
+				</OctokitProvider>
+			</QueryClientProvider>
 		</>
 	);
 };
