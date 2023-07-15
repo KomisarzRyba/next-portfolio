@@ -3,8 +3,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useContext } from 'react';
 import ProjectCard from './ProjectCard';
-import { OctokitContext } from './providers/Octokit';
 import { ReloadIcon } from '@radix-ui/react-icons';
+import useOctokit from '@/hooks/useOctokit';
 
 type Repo = {
 	id: string;
@@ -13,7 +13,7 @@ type Repo = {
 };
 
 const ProjectList = () => {
-	const octokit = useContext(OctokitContext);
+	const { octokit } = useOctokit();
 	const { data, isFetching } = useQuery({
 		queryFn: async () => {
 			const res = await octokit.request('GET /users/KomisarzRyba/repos', {
