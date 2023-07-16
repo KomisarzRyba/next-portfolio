@@ -11,7 +11,7 @@ const page = () => {
 			</h1>
 			<div className='flex flex-col gap-8'>
 				{posts.map((post) => (
-					<PostThumbnail post={post} />
+					<PostThumbnail key={post.id} post={post} />
 				))}
 			</div>
 		</main>
