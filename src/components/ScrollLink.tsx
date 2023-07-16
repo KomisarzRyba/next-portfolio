@@ -1,11 +1,11 @@
 import React, { PropsWithChildren } from 'react';
 import { Button } from './ui/button';
 
-interface NavbarLinkProps {
+interface ScrollLinkProps {
 	targetId: string;
 }
 
-const NavbarLink: React.FC<PropsWithChildren<NavbarLinkProps>> = ({
+const ScrollLink: React.FC<PropsWithChildren<ScrollLinkProps>> = ({
 	children,
 	targetId,
 }) => {
@@ -26,4 +26,4 @@ const NavbarLink: React.FC<PropsWithChildren<NavbarLinkProps>> = ({
 	);
 };
 
-export default NavbarLink;
+export default ScrollLink;

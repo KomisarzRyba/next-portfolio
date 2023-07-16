@@ -5,7 +5,7 @@ const AboutSection = () => {
 	return (
 		<div
 			id='about'
-			className='container py-12 grid gap-12 grid-cols-1 sm:grid-cols-2'
+			className='container py-12 grid gap-12 grid-cols-1 md:grid-cols-2'
 		>
 			<div className='text-lg leading-8'>
 				<div className='flex items-center'>

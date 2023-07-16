@@ -3,10 +3,14 @@
 import { CrumpledPaperIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
-import NavbarLink from './NavbarLink';
+import ScrollLink from './ScrollLink';
 import { motion, useScroll } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { buttonVariants } from './ui/button';
+import { cn } from '@/lib/utils';
 
 const Navbar: React.FC = () => {
+	const pathname = usePathname();
 	const [hidden, setHidden] = React.useState(false);
 	const { scrollY } = useScroll();
 	useEffect(() => {
@@ -28,7 +32,7 @@ const Navbar: React.FC = () => {
 				},
 			}}
 			animate={hidden ? 'hidden' : 'visible'}
-			className='fixed top-0 inset-x-0 h-fit border-b z-50 bg-background'
+			className='sticky top-0 inset-x-0 h-fit border-b z-50 bg-background'
 		>
 			<div className='container h-full py-4 flex justify-between'>
 				<Link href={'/'} className='flex items-center gap-3 w-fit'>
@@ -37,10 +41,29 @@ const Navbar: React.FC = () => {
 						Antek
 					</p>
 				</Link>
-				<div className='flex items-center w-fit gap-4 justify-between'>
-					<NavbarLink targetId='about'>About</NavbarLink>
-					<NavbarLink targetId='about'>About</NavbarLink>
-					<NavbarLink targetId='about'>About</NavbarLink>
+				<div className='flex items-center w-fit gap-6 justify-between'>
+					{pathname === '/' ? (
+						<ScrollLink targetId='about'>About</ScrollLink>
+					) : (
+						<Link
+							href={'/#about'}
+							className={cn(
+								buttonVariants({ variant: 'link' }),
+								'text-muted-foreground hover:text-foreground text-xl font-light underline-offset-8 p-0'
+							)}
+						>
+							About
+						</Link>
+					)}
+					<Link
+						href={'/blog'}
+						className={cn(
+							buttonVariants({ variant: 'link' }),
+							'text-muted-foreground hover:text-foreground text-xl font-light underline-offset-8 p-0'
+						)}
+					>
+						Blog
+					</Link>
 				</div>
 			</div>
 		</motion.div>
