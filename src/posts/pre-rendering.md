@@ -2,6 +2,7 @@
 title: 'Two Forms of Pre-rendering'
 date: '2020-01-01'
 abstract: 'Next.js offers two forms of pre-rendering: Static Generation and Server-side Rendering. This article explains the difference between the two methods and how to choose which one to use for each page. It also discusses how to create a hybrid Next.js app.'
+tags: ['nextjs', 'react', 'javascript']
 ---
 
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.

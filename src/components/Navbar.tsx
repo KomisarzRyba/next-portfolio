@@ -36,14 +36,14 @@ const Navbar: React.FC = () => {
 		>
 			<div className='container h-full py-4 flex justify-between'>
 				<Link href={'/'} className='flex items-center gap-3 w-fit'>
-					<CrumpledPaperIcon className='w-8 h-8 sm:w-6 sm:h-6 hover:animate-spin' />
+					<CrumpledPaperIcon className='w-8 h-8 sm:w-6 sm:h-6' />
 					<p className='text-2xl font-extralight hidden sm:inline-block'>
 						Antek
 					</p>
 				</Link>
 				<div className='flex items-center w-fit gap-6 justify-between'>
 					{pathname === '/' ? (
-						<ScrollLink targetId='about'>About</ScrollLink>
+						<ScrollLink targetId='about'>about</ScrollLink>
 					) : (
 						<Link
 							href={'/#about'}
@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
 								'text-muted-foreground hover:text-foreground text-xl font-light underline-offset-8 p-0'
 							)}
 						>
-							About
+							about
 						</Link>
 					)}
 					<Link
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
 							'text-muted-foreground hover:text-foreground text-xl font-light underline-offset-8 p-0'
 						)}
 					>
-						Blog
+						notes
 					</Link>
 				</div>
 			</div>

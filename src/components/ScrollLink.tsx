@@ -12,7 +12,7 @@ const ScrollLink: React.FC<PropsWithChildren<ScrollLinkProps>> = ({
 	return (
 		<Button
 			variant='link'
-			className='text-muted-foreground hover:text-foreground text-xl font-light p-0'
+			className='text-muted-foreground hover:text-foreground text-xl underline-offset-8 font-light p-0'
 			onClick={() => {
 				const target = document.getElementById(targetId);
 				window.scrollTo({

@@ -44,9 +44,9 @@ const TechStack = () => {
 									}
 								>
 									No other language has made me feel as
-									productive as TypeScript. I love the type
-									safety. It make the code easier to maintain,
-									and it{"'"}s a joy to work with.
+									productive as TypeScript. Type safety is a
+									game-changer. It make the code easier to
+									maintain, and it{"'"}s a joy to work with.
 								</TechStackItem>
 								<TechStackItem
 									title='Next.js'
@@ -68,6 +68,26 @@ const TechStack = () => {
 									responsive UIs with Tailwind. I use it in
 									all of my projects.
 								</TechStackItem>
+								<TechStackItem
+									title='React Query'
+									icon={
+										<Icons.reactQuery className='inline w-8 h-8 mr-4' />
+									}
+								>
+									React Query is my favorite data fetching
+									library. It{"'"}s easy to use, and provides
+									a lot of useful features out of the box.
+								</TechStackItem>
+								<TechStackItem
+									title='Zod'
+									icon={
+										<Icons.zod className='inline w-8 h-8 mr-4' />
+									}
+								>
+									Zod helps me write type-safe code. I use it
+									for validating data from the server or from
+									client-side forms.
+								</TechStackItem>
 							</ScrollArea>
 						</AccordionContent>
 					</AccordionItem>
@@ -75,7 +95,32 @@ const TechStack = () => {
 						<AccordionTrigger>
 							<h3 className='text-lg'>Game development</h3>
 						</AccordionTrigger>
-						<AccordionContent>Hello</AccordionContent>
+						<AccordionContent>
+							<ScrollArea className='h-[300px] w-full rounded-md p-2'>
+								<TechStackItem
+									title='Unity'
+									icon={
+										<Icons.unity className='inline w-8 h-8 mr-4' />
+									}
+								>
+									Unity holds a special place in my heart. It
+									opened the door to game programming for me.
+									I am very familiar with the engine, and I
+									use it to take part in game jams.
+								</TechStackItem>
+								<TechStackItem
+									title='C&#35;'
+									icon={
+										<Icons.csharp className='inline w-8 h-8 mr-4' />
+									}
+								>
+									C&#35; was the language I wrote my first
+									line of code in. It introduced me to the OOP
+									paradigm, and helped me understand the core
+									concepts of programming.
+								</TechStackItem>
+							</ScrollArea>
+						</AccordionContent>
 					</AccordionItem>
 					<AccordionItem value='other'>
 						<AccordionTrigger>

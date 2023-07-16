@@ -1,19 +1,15 @@
-import PostThumbnail from '@/components/PostThumbnail';
-import { getSortedPostsData } from '@/lib/post-reader';
+import PostList from '@/components/PostList';
+import { getPostsData } from '@/lib/post-reader';
 
 const page = () => {
-	const posts = getSortedPostsData();
+	const { posts, allTags } = getPostsData();
 
 	return (
-		<main className='container my-4'>
+		<main className='container max-w-2xl mt-4 mb-8'>
 			<h1 className='text-7xl my-8'>
 				my notes <span className='text-6xl'>📝</span>
 			</h1>
-			<div className='flex flex-col gap-8'>
-				{posts.map((post) => (
-					<PostThumbnail key={post.id} post={post} />
-				))}
-			</div>
+			<PostList posts={posts} tags={allTags} />
 		</main>
 	);
 };

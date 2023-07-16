@@ -1,12 +1,14 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import { all } from 'hast-util-to-html/lib';
 import path from 'path';
 import { remark } from 'remark';
 import html from 'remark-html';
 
 const postsDir = path.join(process.cwd(), 'src/posts');
 
-export const getSortedPostsData = () => {
+export const getPostsData = () => {
+	const allTags = new Set<string>();
 	const fileNames = fs.readdirSync(postsDir);
 	const allPostsData = fileNames.map((fileName) => {
 		const id = fileName.replace('.md', '');
@@ -15,6 +17,10 @@ export const getSortedPostsData = () => {
 		const fileContent = fs.readFileSync(fullPath, 'utf8');
 
 		const matterResult = matter(fileContent);
+
+		for (let tag of matterResult.data.tags) {
+			allTags.add(tag);
+		}
 
 		const post: Blogpost = {
 			id,
@@ -26,10 +32,11 @@ export const getSortedPostsData = () => {
 
 		return post;
 	});
-	return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+	allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1)); // for some fucking reason this mutates the array
+	return { posts: allPostsData, allTags: Array.from(allTags) };
 };
 
-export const getPostData = async (id: string) => {
+export const getPost = async (id: string) => {
 	const fullPath = path.join(postsDir, `${id}.md`);
 	const fileContent = fs.readFileSync(fullPath, 'utf8');
 	const matterResult = matter(fileContent);

@@ -1,6 +1,6 @@
 import { buttonVariants } from '@/components/ui/button';
 import { getFormattedDateString } from '@/lib/date-formatter';
-import { getPostData, getSortedPostsData } from '@/lib/post-reader';
+import { getPost, getPostsData } from '@/lib/post-reader';
 import { cn } from '@/lib/utils';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { Metadata } from 'next';
@@ -15,14 +15,14 @@ interface PostPageProps {
 }
 
 export const generateStaticParams = () => {
-	const posts = getSortedPostsData();
+	const posts = getPostsData();
 	return posts.map((post) => ({
 		id: post.id,
 	}));
 };
 
 export const generateMetadata = ({ params }: PostPageProps) => {
-	const posts = getSortedPostsData();
+	const posts = getPostsData();
 	const { id } = params;
 	const post = posts.find((post) => post.id === id);
 	const title = post ? post.title : 'Post not found';
@@ -33,14 +33,14 @@ export const generateMetadata = ({ params }: PostPageProps) => {
 };
 
 const page: React.FC<PostPageProps> = async ({ params }) => {
-	const posts = getSortedPostsData();
+	const posts = getPostsData();
 	const { id } = params;
 
 	if (!posts.find((post) => post.id === id)) {
 		return notFound();
 	}
 
-	const { title, date, htmlContent } = await getPostData(id);
+	const { title, date, htmlContent } = await getPost(id);
 	const pubDate = getFormattedDateString(date);
 
 	return (
