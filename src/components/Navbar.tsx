@@ -60,7 +60,8 @@ const Navbar: React.FC = () => {
 							You can check out my latest version of this website{' '}
 							<a
 								href='https://antek.dev'
-								className='underline font-medium'
+								target='_blank'
+								className='font-medium hover:underline underline-offset-2'
 							>
 								here
 							</a>

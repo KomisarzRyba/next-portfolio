@@ -1,8 +1,8 @@
-import { PropsWithChildren, ReactNode } from 'react';
+import { HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Icons } from './Icons';
+import { cn } from '@/lib/utils';
 
-interface TechStackItemProps {
+interface TechStackItemProps extends HTMLAttributes<HTMLDivElement> {
 	title: string;
 	icon: ReactNode;
 }
@@ -11,9 +11,11 @@ const TechStackItem: React.FC<PropsWithChildren<TechStackItemProps>> = ({
 	title,
 	icon,
 	children,
+	className,
+	...props
 }) => {
 	return (
-		<Card className='my-2 first:mt-0 last:mb-0 bg-card'>
+		<Card className={cn(className, 'bg-secondary')} {...props}>
 			<CardHeader>
 				<CardTitle>
 					{icon}

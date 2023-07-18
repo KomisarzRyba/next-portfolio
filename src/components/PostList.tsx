@@ -19,7 +19,7 @@ const PostList: React.FC<PostListProps> = ({ posts, tags }) => {
 			return filter.every((tag) => post.tags?.includes(tag));
 		});
 		setDisplayPost(filteredPosts);
-	}, [filter]);
+	}, [filter, posts]);
 	return (
 		<>
 			<div className='flex h-fit pb-4 justify-between items-center'>
