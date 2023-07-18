@@ -7,7 +7,7 @@ import {
 
 const HeroSection = () => {
 	return (
-		<div className='container h-[92vh] bg-secondary'>
+		<div className='container h-[92vh] bg-secondary rounded-b-xl border'>
 			<div className='h-full flex items-center justify-around'>
 				<div className='space-y-2'>
 					<h1 className='text-6xl sm:text-8xl'>

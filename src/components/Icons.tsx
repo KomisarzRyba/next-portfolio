@@ -306,7 +306,7 @@ export const Icons = {
 			xmlnsXlink='http://www.w3.org/1999/xlink'
 			preserveAspectRatio='xMidYMid'
 		>
-			<g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+			<g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
 				<path
 					d='M0.387794202,0 L24.1799034,0 L24.1799034,157.893062 L118.266862,157.893062 L118.266862,177.359321 L0.387795376,177.359321 L0.387795376,3.33759524e-14 L0.387794202,0 Z'
 					fill='#000000'

@@ -1,10 +1,8 @@
-import { DotFilledIcon, DotIcon } from '@radix-ui/react-icons';
 import TechStack from './TechStack';
-import { Separator } from './ui/separator';
 
 const AboutSection = () => {
 	return (
-		<div id='about' className='container py-12 grid gap-12 grid-cols-1'>
+		<div id='about' className='py-12 grid gap-12 grid-cols-1'>
 			<div>
 				<h2 className='text-4xl pb-2 font-medium'>| about me</h2>
 				<div className='leading-8 max-w-2xl mx-auto flex flex-col h-full justify-center items-center'>
