@@ -7,11 +7,8 @@ const AboutSection = () => {
 			id='about'
 			className='container py-12 grid gap-12 grid-cols-1 md:grid-cols-2'
 		>
-			<div className='text-lg leading-8'>
-				<div className='flex items-center'>
-					<DotFilledIcon className='inline w-8 h-8 mr-4 text-muted-foreground' />
-					<h2 className='text-4xl pb-2'>about me</h2>
-				</div>
+			<div className='leading-8'>
+				<h2 className='text-2xl pb-2'>| about me</h2>
 				<p className='py-4'>
 					I{"'"}m a passionate full-stack developer with a knack for
 					creating functional, and impactful experiences. With a

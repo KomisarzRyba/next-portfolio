@@ -15,25 +15,27 @@ interface PostPageProps {
 }
 
 export const generateStaticParams = () => {
-	const posts = getPostsData();
+	const { posts } = getPostsData();
 	return posts.map((post) => ({
 		id: post.id,
 	}));
 };
 
 export const generateMetadata = ({ params }: PostPageProps) => {
-	const posts = getPostsData();
+	const { posts } = getPostsData();
 	const { id } = params;
 	const post = posts.find((post) => post.id === id);
-	const title = post ? post.title : 'Post not found';
+	const title = post?.title ?? 'Post not found';
+	const abstract = post?.abstract ?? 'Post not found';
 	const metadata: Metadata = {
 		title,
+		abstract,
 	};
 	return metadata;
 };
 
 const page: React.FC<PostPageProps> = async ({ params }) => {
-	const posts = getPostsData();
+	const { posts } = getPostsData();
 	const { id } = params;
 
 	if (!posts.find((post) => post.id === id)) {

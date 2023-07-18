@@ -7,10 +7,10 @@ import {
 
 const HeroSection = () => {
 	return (
-		<div className='container h-[95vh] bg-secondary'>
+		<div className='container h-[92vh] bg-secondary'>
 			<div className='h-full flex items-center justify-around'>
 				<div className='space-y-2'>
-					<h1 className='text-8xl'>
+					<h1 className='text-6xl sm:text-8xl'>
 						hi there! I{"'"}m{' '}
 						<TooltipProvider>
 							<Tooltip
@@ -26,7 +26,7 @@ const HeroSection = () => {
 							</Tooltip>
 						</TooltipProvider>
 					</h1>
-					<h2 className='text-4xl font-light'>
+					<h2 className='text-3xl sm:text-4xl font-light'>
 						I{"'"}m a software developer
 					</h2>
 					<h2 className='text-lg font-extralight'>

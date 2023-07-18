@@ -1,10 +1,10 @@
 'use client';
 
+import { AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
-import PostThumbnail from './PostThumbnail';
-import { Badge } from './ui/badge';
-import { AnimatePresence, motion } from 'framer-motion';
+import ActiveTags from './ActiveTags';
 import PostFilterMenu from './PostFilterMenu';
+import PostThumbnail from './PostThumbnail';
 
 interface PostListProps {
 	posts: Blogpost[];
@@ -21,33 +21,13 @@ const PostList: React.FC<PostListProps> = ({ posts, tags }) => {
 		setDisplayPost(filteredPosts);
 	}, [filter]);
 	return (
-		<div>
-			<div className='flex justify-between'>
-				<div className='flex h-16 gap-2 py-4'>
-					<AnimatePresence>
-						{filter.length > 0 &&
-							filter.map((tag) => (
-								<motion.div
-									key={tag}
-									layout
-									initial={{ scale: 0 }}
-									animate={{ scale: 1 }}
-									exit={{ scale: 0 }}
-								>
-									<Badge
-										className='cursor-pointer w-fit h-fit'
-										onClick={() => {
-											setFilter((prev) =>
-												prev.filter((t) => t !== tag)
-											);
-										}}
-									>
-										{tag}
-									</Badge>
-								</motion.div>
-							))}
-					</AnimatePresence>
-				</div>
+		<>
+			<div className='flex h-fit pb-4 justify-between items-center'>
+				<ActiveTags
+					filter={filter}
+					setFilter={setFilter}
+					className='flex-1 p-2'
+				/>
 				<PostFilterMenu
 					tags={tags}
 					filter={filter}
@@ -66,7 +46,7 @@ const PostList: React.FC<PostListProps> = ({ posts, tags }) => {
 					))}
 				</AnimatePresence>
 			</div>
-		</div>
+		</>
 	);
 };
 

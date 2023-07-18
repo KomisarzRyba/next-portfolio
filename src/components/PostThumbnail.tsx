@@ -1,7 +1,11 @@
 'use client';
 
+import { getFormattedDateString } from '@/lib/date-formatter';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
+import { Badge } from './ui/badge';
 import { buttonVariants } from './ui/button';
 import {
 	Card,
@@ -11,10 +15,6 @@ import {
 	CardHeader,
 	CardTitle,
 } from './ui/card';
-import { usePathname } from 'next/navigation';
-import { getFormattedDateString } from '@/lib/date-formatter';
-import { Badge } from './ui/badge';
-import { AnimatePresence, motion } from 'framer-motion';
 
 interface PostThumbnailProps {
 	post: Blogpost;
@@ -31,9 +31,9 @@ const PostThumbnail: React.FC<PostThumbnailProps> = ({
 	return (
 		<motion.div
 			layout
-			initial={{ x: -1000 }}
+			initial={{ x: -1500 }}
 			animate={{ x: 0 }}
-			exit={{ x: -1000 }}
+			exit={{ x: -1500 }}
 		>
 			<Card id={post.id} className='bg-card shadow-md'>
 				<CardHeader>
