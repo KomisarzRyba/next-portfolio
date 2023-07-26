@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
 						</p>
 					</PopoverContent>
 				</Popover>
-				<div className='flex items-center w-fit gap-6 justify-between'>
+				<div className='flex items-center w-fit gap-3 justify-between'>
 					{pathname === '/' ? (
 						<ScrollLink targetId='about'>about</ScrollLink>
 					) : (

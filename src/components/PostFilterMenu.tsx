@@ -78,16 +78,6 @@ const PostFilterMenu: React.FC<PostFilterMenuProps> = ({
 					</Command>
 				</PopoverContent>
 			</Popover>
-			{filter.length > 0 && (
-				<Button
-					variant='secondary'
-					onClick={() => {
-						setFilter([]);
-					}}
-				>
-					Clear filters
-				</Button>
-			)}
 		</div>
 	);
 };
