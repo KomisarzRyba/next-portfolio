@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
 			if (curr > 200 && curr > scrollY.getPrevious()) setHidden(true);
 			else if (curr < scrollY.getPrevious()) setHidden(false);
 		});
-	}, []);
+	});
 
 	return (
 		<motion.div
@@ -30,11 +30,11 @@ const Navbar: React.FC = () => {
 					y: 0,
 				},
 				hidden: {
-					y: -120,
+					y: -64,
 				},
 			}}
 			animate={hidden ? 'hidden' : 'visible'}
-			className='sticky top-0 inset-x-0 h-fit border-b z-50 bg-background'
+			className='sticky top-0 inset-x-0 h-16 border-b z-50 bg-background'
 		>
 			<div className='container h-full py-4 flex justify-between'>
 				<Link href={'/'} className='flex items-center gap-3 w-fit'>
@@ -45,23 +45,23 @@ const Navbar: React.FC = () => {
 				</Link>
 				<Popover>
 					<PopoverTrigger>
-						<Alert className='w-fit h-fit px-8 hover:bg-secondary text-left'>
-							<CodeIcon className='w-4 h-4 mr-2' />
-							<AlertTitle className='text-sm'>
-								I&apos;m working on it!
-							</AlertTitle>
-							<AlertDescription className='text-xs'>
-								This site is under construction.
-							</AlertDescription>
-						</Alert>
+						<div className='p-4 rounded-md h-full border flex items-center'>
+							<CodeIcon className='w-6 h-6' />
+							<p className='hidden sm:block font-light text-xs ml-4'>
+								I&apos;m working on it...
+							</p>
+						</div>
 					</PopoverTrigger>
-					<PopoverContent>
+					<PopoverContent className='mt-4'>
+						<p className='sm:hidden text-lg'>
+							I&apos;m working on it...
+						</p>
 						<p className='text-sm'>
 							You can check out my latest version of this website{' '}
 							<a
 								href='https://antek.dev'
 								target='_blank'
-								className='font-medium hover:underline underline-offset-2'
+								className='font-bold hover:underline underline-offset-2'
 							>
 								here
 							</a>
