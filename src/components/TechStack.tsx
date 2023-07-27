@@ -4,15 +4,17 @@ import { ScrollArea } from './ui/scroll-area';
 
 const TechStack = () => {
 	return (
-		<div className='bg-secondary p-4 rounded-xl border'>
-			<h3 className='text-2xl font-medium text-center'>tech I ❤️</h3>
+		<div className=''>
+			<h2 className='text-4xl pb-2 font-medium'>
+				<span className='font-thin'>||</span> tech I ❤️
+			</h2>
 			<ScrollArea className='h-[80vh] my-4 rounded-xl border bg-card'>
 				<div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 p-4'>
 					<TechStackItem
 						title='React'
 						icon={<Icons.react className='inline w-8 h-8 mr-4' />}
 					>
-						I{"'"}ve been using React extensively since the
+						I&apos;ve been using React extensively since the
 						beginning of my web development journey, and I truly
 						enjoy it.
 					</TechStackItem>
@@ -23,17 +25,15 @@ const TechStack = () => {
 						}
 					>
 						No other language has made me feel as productive as
-						TypeScript. Type safety is a game-changer. It make the
-						code easier to maintain, and it{"'"}s a joy to work
-						with.
+						TypeScript. It makes JavaScript easier to maintain, and
+						it&apos;s a joy to work with.
 					</TechStackItem>
 					<TechStackItem
 						title='Next.js'
 						icon={<Icons.next className='inline w-8 h-8 mr-4' />}
 					>
 						Next.js is my go-to framework for building React apps.
-						It
-						{"'"}s easy to use, and I find the new app router
+						It &apos;s easy to use, and I find the new app router
 						intuitive.
 					</TechStackItem>
 					<TechStackItem
@@ -51,8 +51,8 @@ const TechStack = () => {
 							<Icons.reactQuery className='inline w-8 h-8 mr-4' />
 						}
 					>
-						React Query is my favorite data fetching library. It
-						{"'"}s easy to use, and provides a lot of useful
+						React Query is my favorite data fetching library.
+						It&apos;s easy to use, and provides a lot of useful
 						features out of the box.
 					</TechStackItem>
 					<TechStackItem

@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
 				</Link>
 				<Popover>
 					<PopoverTrigger>
-						<div className='p-4 rounded-md h-full border flex items-center'>
+						<div className='p-4 rounded-md h-full hover:bg-secondary border flex items-center'>
 							<CodeIcon className='w-6 h-6' />
 							<p className='hidden sm:block font-light text-xs ml-4'>
 								I&apos;m working on it...
