@@ -3,7 +3,7 @@ import ContactForm from './ContactForm';
 
 const ContactSection = () => {
 	return (
-		<div className='container'>
+		<div className='mx-auto max-w-4xl'>
 			<ContactForm />
 		</div>
 	);

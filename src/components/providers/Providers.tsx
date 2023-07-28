@@ -3,7 +3,8 @@
 import React from 'react';
 import { ThemeProvider } from './ThemeProvider';
 import OctokitProvider from './Octokit';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Toaster } from '../ui/toaster';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
 	const queryClient = new QueryClient();
@@ -13,9 +14,10 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 				<OctokitProvider>
 					<ThemeProvider
 						attribute='class'
-						defaultTheme='system'
+						defaultTheme='dark' //this needs to be set to 'system'; temp fix
 						enableSystem
 					>
+						<Toaster />
 						{children}
 					</ThemeProvider>
 				</OctokitProvider>

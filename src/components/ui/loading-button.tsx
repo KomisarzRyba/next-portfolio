@@ -1,4 +1,5 @@
 import { Button, ButtonProps } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { ReloadIcon } from '@radix-ui/react-icons';
 import { FC } from 'react';
 
@@ -12,12 +13,13 @@ export const LoadingButton: FC<LoadingButtonProps> = ({
 	...props
 }) => {
 	return (
-		<Button {...props}>
-			{isLoading ? (
-				<ReloadIcon className='mr-2 h-4 w-4 animate-spin' />
-			) : (
-				children
-			)}
+		<Button disabled={isLoading} {...props}>
+			<>
+				{isLoading && (
+					<ReloadIcon className='absolute h-4 w-4 animate-spin' />
+				)}
+				<div className={cn(isLoading && 'invisible')}>{children}</div>
+			</>
 		</Button>
 	);
 };

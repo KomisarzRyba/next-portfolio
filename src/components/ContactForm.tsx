@@ -1,9 +1,13 @@
 'use client';
 
 import { ContactFormRequest, ContactFormValidator } from '@/lib/contact-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
+import { motion } from 'framer-motion';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation } from 'react-query';
+import { Button } from './ui/button';
 import {
 	Card,
 	CardContent,
@@ -14,10 +18,9 @@ import {
 } from './ui/card';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
-import { Button } from './ui/button';
-import { motion } from 'framer-motion';
 import { LoadingButton } from './ui/loading-button';
 import { Textarea } from './ui/textarea';
+import { toast } from './ui/use-toast';
 
 const ContactForm: React.FC = () => {
 	const {
@@ -28,19 +31,41 @@ const ContactForm: React.FC = () => {
 	} = useForm<ContactFormRequest>({
 		resolver: zodResolver(ContactFormValidator),
 		defaultValues: {
-			name: '',
-			email: '',
-			message: '',
+			senderName: '',
+			senderEmail: '',
+			messageContent: '',
 		},
 	});
 
-	const sendMessage = async (data: ContactFormRequest) => {
-		console.log(data);
-	};
+	const { mutate: sendMessage, isLoading } = useMutation({
+		mutationFn: async (payload: ContactFormRequest) => {
+			const apiUri = process.env.NEXT_PUBLIC_CONTACT_MAIL_API_URI;
+			const { data } = await axios.post(apiUri!, payload);
+			return data;
+		},
+		onError: (error: Error) => {
+			console.log(error.message);
+			toast({
+				title: 'Something went wrong!',
+				description:
+					'Could not send the message at this time. Please try again later.',
+				variant: 'destructive',
+				duration: 5000,
+			});
+		},
+		onSuccess: () => {
+			reset();
+			toast({
+				title: 'Message sent!',
+				description: 'I will get back to you as soon as possible.',
+				duration: 5000,
+			});
+		},
+	});
 
 	return (
 		<form onSubmit={handleSubmit((data) => sendMessage(data))}>
-			<Card className='w-fit'>
+			<Card>
 				<CardHeader>
 					<CardTitle>let&apos;s get in touch!</CardTitle>
 					<CardDescription>
@@ -56,16 +81,16 @@ const ContactForm: React.FC = () => {
 						</Label>
 						<Input
 							id='name'
-							{...register('name')}
+							{...register('senderName')}
 							className='min-w-fit z-10'
 						/>
-						{errors.name && (
+						{errors.senderName && (
 							<motion.p
 								initial={{ opacity: 0, x: 40, y: 0 }}
 								animate={{ opacity: 1, y: -40 }}
 								className='absolute z-0 text-destructive text-xs font-medium'
 							>
-								{errors.name.message}
+								{errors.senderName.message}
 							</motion.p>
 						)}
 					</div>
@@ -75,16 +100,16 @@ const ContactForm: React.FC = () => {
 						</Label>
 						<Input
 							id='email'
-							{...register('email')}
+							{...register('senderEmail')}
 							className='min-w-fit z-10'
 						/>
-						{errors.email && (
+						{errors.senderEmail && (
 							<motion.p
 								initial={{ opacity: 0, x: 40, y: 0 }}
 								animate={{ opacity: 1, y: -40 }}
 								className='absolute z-0 text-destructive text-xs font-medium'
 							>
-								{errors.email.message}
+								{errors.senderEmail.message}
 							</motion.p>
 						)}
 					</div>
@@ -92,11 +117,27 @@ const ContactForm: React.FC = () => {
 						<Label className='font-light ' htmlFor='message'>
 							Message
 						</Label>
-						<Textarea id='message' rows={5} className='resize-y' />
+						<Textarea
+							id='message'
+							{...register('messageContent')}
+							rows={5}
+							className='resize-y'
+						/>
+						{errors.messageContent && (
+							<motion.p
+								initial={{ opacity: 0, x: 40, y: 0 }}
+								animate={{ opacity: 1, y: -40 }}
+								className='absolute z-0 text-destructive text-xs font-medium'
+							>
+								{errors.messageContent.message}
+							</motion.p>
+						)}
 					</div>
 				</CardContent>
 				<CardFooter className='flex justify-end'>
-					<LoadingButton type='submit'>Send</LoadingButton>
+					<LoadingButton type='submit' isLoading={isLoading}>
+						Send
+					</LoadingButton>
 					<Button
 						type='button'
 						variant='secondary'
