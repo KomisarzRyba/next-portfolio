@@ -89,8 +89,6 @@ const redis = new Redis({
 });
 ```
 
-Make sure to replace process.env.UPSTASH_REDIS_REST_URL and process.env.UPSTASH_REDIS_REST_TOKEN with the actual Redis URL and token you obtained from your Redis provider.
-
 ### OAuth2 Callback
 
 After you grant permission on the Google consent screen, you will be redirected to our specified callback URL. We'll handle the callback to exchange the authorization code for an access token and store the refresh token in Redis.
