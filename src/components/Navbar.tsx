@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect } from 'react';
 import ScrollLink from './ScrollLink';
-import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 import { buttonVariants } from './ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 
@@ -92,6 +91,19 @@ const Navbar: React.FC = () => {
 					>
 						notes
 					</Link>
+					{pathname === '/' ? (
+						<ScrollLink targetId='contact'>contact</ScrollLink>
+					) : (
+						<Link
+							href={'/#contact'}
+							className={cn(
+								buttonVariants({ variant: 'link' }),
+								'text-muted-foreground hover:text-foreground text-xl font-light underline-offset-8 p-0'
+							)}
+						>
+							contact
+						</Link>
+					)}
 				</div>
 			</div>
 		</motion.div>
