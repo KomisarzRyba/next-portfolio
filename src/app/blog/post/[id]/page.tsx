@@ -46,7 +46,7 @@ const page: React.FC<PostPageProps> = async ({ params }) => {
 	const pubDate = getFormattedDateString(date);
 
 	return (
-		<main className='container prose prose-xl mt-8'>
+		<main className='container prose dark:prose-invert prose-xl mt-8'>
 			<div className='bg-secondary rounded-md px-8 py-4 flex items-center'>
 				<Link
 					href={'/blog'}

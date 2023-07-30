@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { ThemeProvider } from './ThemeProvider';
-import OctokitProvider from './Octokit';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Toaster } from '../ui/toaster';
+import OctokitProvider from './Octokit';
+import { ThemeProvider } from './ThemeProvider';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
 	const queryClient = new QueryClient();
@@ -12,11 +12,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 		<>
 			<QueryClientProvider client={queryClient}>
 				<OctokitProvider>
-					<ThemeProvider
-						attribute='class'
-						defaultTheme='dark' //this needs to be set to 'system'; temp fix
-						enableSystem
-					>
+					<ThemeProvider attribute='class' defaultTheme='system'>
 						<Toaster />
 						{children}
 					</ThemeProvider>
