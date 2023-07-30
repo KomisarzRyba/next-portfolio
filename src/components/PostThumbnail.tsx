@@ -38,7 +38,14 @@ const PostThumbnail: React.FC<PostThumbnailProps> = ({
 		>
 			<Card id={post.id} className='bg-card shadow-md'>
 				<CardHeader className='w-full'>
-					<CardTitle>{post.title}</CardTitle>
+					<CardTitle>
+						<Link
+							href={`${pathname}/post/${post.id}`}
+							className='hover:underline underline-offset-2'
+						>
+							{post.title}
+						</Link>
+					</CardTitle>
 					<CardDescription className='py-1 flex items-center'>
 						{getFormattedDateString(post.date)}
 					</CardDescription>
