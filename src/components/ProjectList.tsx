@@ -1,10 +1,9 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
-import { useContext } from 'react';
-import ProjectCard from './ProjectCard';
-import { ReloadIcon } from '@radix-ui/react-icons';
 import useOctokit from '@/hooks/useOctokit';
+import { ReloadIcon } from '@radix-ui/react-icons';
+import { useQuery } from 'react-query';
+import ProjectCard from './ProjectCard';
 
 type Repo = {
 	id: string;
