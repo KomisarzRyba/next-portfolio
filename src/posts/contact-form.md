@@ -110,7 +110,7 @@ app.get('/oauth2callback', async (req, res) => {
 
 Make sure to add the callback URL to the list of authorized redirect URIs in the Google Developer Console.
 
-_When you deploy your application, you must visit the authorizationUrl to initiate the OAuth2 flow. After you grant permission on the Google consent screen, you will be redirected to the callback URL, and the refresh token will be stored in Redis._
+_When you deploy your application, you must visit the authorizationUrl to initiate the OAuth2 flow. After you grant permission on the Google consent screen, you will be redirected to the callback URL, and the Credentials containing the refresh token will be stored in Redis._
 
 ### Validating the request payload
 
@@ -143,10 +143,16 @@ app.post('/send', async (req, res) => {
 		const { senderName, senderEmail, messageContent } =
 			MessagePayloadSchema.parse(req.body);
 
+		// Compose the email message
 		const message = `From: ${senderName} <${senderEmail}>\nTo: Antek <example@gmail.com>\nSubject: New message from Portfolio\n\nSender: ${senderName} <${senderEmail}>\n${messageContent}`;
 
-		const token = await redis.json.get('token');
-		oauth2client.setCredentials(JSON.parse(token));
+		// Get the refresh token from Redis
+		const token = await redis.json.get('token'); // this is already parsed!
+
+		// Set the credentials using the refresh token
+		oauth2client.setCredentials({
+			refresh_token: token.refresh_token,
+		});
 
 		const { data } = await gmail.users.messages.send({
 			userId: 'me',
