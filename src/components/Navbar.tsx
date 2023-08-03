@@ -9,6 +9,7 @@ import React, { useEffect } from 'react';
 import ScrollLink from './ScrollLink';
 import { buttonVariants } from './ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+import { Alert } from './ui/alert';
 
 const Navbar: React.FC = () => {
 	const pathname = usePathname();
@@ -42,32 +43,12 @@ const Navbar: React.FC = () => {
 						Antek
 					</p>
 				</Link>
-				<Popover>
-					<PopoverTrigger>
-						<div className='p-4 rounded-md h-full hover:bg-secondary border flex items-center'>
-							<CodeIcon className='w-6 h-6' />
-							<p className='hidden sm:block font-light text-xs ml-4'>
-								I&apos;m working on it...
-							</p>
-						</div>
-					</PopoverTrigger>
-					<PopoverContent className='mt-4'>
-						<p className='sm:hidden text-lg'>
-							I&apos;m working on it...
-						</p>
-						<p className='text-sm'>
-							You can check out my latest version of this website{' '}
-							<a
-								href='https://antek.dev'
-								target='_blank'
-								className='font-bold hover:underline underline-offset-2'
-							>
-								here
-							</a>
-							{'.'}
-						</p>
-					</PopoverContent>
-				</Popover>
+				<div className='p-4 rounded-md h-full bg-secondary border flex items-center'>
+					<CodeIcon className='w-6 h-6' />
+					<p className='hidden md:block font-light text-s ml-4'>
+						Preview site! Work in progress...
+					</p>
+				</div>
 				<div className='flex items-center w-fit gap-3 justify-between'>
 					{pathname === '/' ? (
 						<ScrollLink targetId='about'>about</ScrollLink>
