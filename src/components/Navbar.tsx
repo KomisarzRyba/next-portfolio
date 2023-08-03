@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
 						<p className='text-sm'>
 							You can check out my latest version of this website{' '}
 							<a
-								href='https://antek.dev'
+								href='https://portfolio-git-dev-komisarzryba.vercel.app/'
 								target='_blank'
 								className='font-bold hover:underline underline-offset-2'
 							>
