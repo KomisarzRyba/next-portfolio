@@ -10,3 +10,27 @@ datasource db {
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
+
+model Resource {
+  id        String    @id @default(uuid())
+  createdAt DateTime? @default(now())
+  comments  Comment[]
+}
+
+model User {
+  name             String    @id @unique
+  createdAt        DateTime? @default(now())
+  authoredComments Comment[]
+}
+
+model Comment {
+  id         Int      @id @default(autoincrement())
+  resource   Resource @relation(fields: [resourceId], references: [id])
+  resourceId String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  author     User     @relation(fields: [authorName], references: [name])
+  authorName String
+  title      String?
+  content    String
+}

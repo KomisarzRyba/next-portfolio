@@ -12,7 +12,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 		<>
 			<QueryClientProvider client={queryClient}>
 				<OctokitProvider>
-					<ThemeProvider attribute='class' defaultTheme='system'>
+					<ThemeProvider attribute='class' defaultTheme='dark'>
 						<Toaster />
 						{children}
 					</ThemeProvider>
