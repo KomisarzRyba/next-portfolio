@@ -3,7 +3,7 @@
 import useOctokit from '@/hooks/useOctokit';
 import { ReloadIcon } from '@radix-ui/react-icons';
 import { useQuery } from 'react-query';
-import ProjectCard from './ProjectCard';
+import RepoCard from './RepoCard';
 
 type Repo = {
 	id: string;
@@ -11,7 +11,7 @@ type Repo = {
 	description: string | null;
 };
 
-const ProjectList = () => {
+const Repos = () => {
 	const { octokit } = useOctokit();
 	const { data, isFetching } = useQuery({
 		queryFn: async () => {
@@ -25,21 +25,17 @@ const ProjectList = () => {
 		queryKey: ['repos_query'],
 	});
 
-	return (
-		<div className='h-64 flex justify-center items-center gap-4'>
-			{isFetching ? (
-				<ReloadIcon className='w-32 h-32 animate-spin' />
-			) : (
-				data?.map((repo) => (
-					<ProjectCard
-						key={repo.id}
-						title={repo.name}
-						description={repo.description}
-					/>
-				))
-			)}
-		</div>
+	return isFetching ? (
+		<ReloadIcon className='w-32 h-32 animate-spin' />
+	) : (
+		data?.map((repo) => (
+			<RepoCard
+				key={repo.id}
+				title={repo.name}
+				description={repo.description}
+			/>
+		))
 	);
 };
 
-export default ProjectList;
+export default Repos;

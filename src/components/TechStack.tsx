@@ -5,11 +5,11 @@ import { ScrollArea } from './ui/scroll-area';
 const TechStack = () => {
 	return (
 		<div className=''>
-			<h2 className='text-4xl pb-2 font-medium'>
+			<h2 className='pb-2 text-4xl font-medium'>
 				<span className='font-thin'>||</span> tech I ❤️
 			</h2>
-			<ScrollArea className='h-[80vh] my-4 rounded-xl border bg-card'>
-				<div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 p-4'>
+			<ScrollArea className='h-[35vh] min-h-[200px] my-4 rounded-xl border bg-card'>
+				<div className='grid grid-cols-1 gap-4 p-4 md:grid-cols-2 xl:grid-cols-4'>
 					<TechStackItem
 						title='React'
 						icon={<Icons.react className='inline w-8 h-8 mr-4' />}

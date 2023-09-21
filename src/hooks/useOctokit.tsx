@@ -3,7 +3,7 @@ import { createContext } from 'react';
 
 const useOctokit = () => {
 	const octokit = new Octokit({
-		auth: process.env.GITHUB_TOKEN,
+		auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN,
 		userAgent: 'portfolio-page',
 	});
 	const octokitContext = createContext<Octokit>(octokit);

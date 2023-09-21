@@ -3,9 +3,9 @@ import ContactForm from './ContactForm';
 
 const ContactSection = () => {
 	return (
-		<div id='contact' className='mx-auto max-w-4xl'>
+		<section id='contact' className='max-w-4xl mx-auto'>
 			<ContactForm />
-		</div>
+		</section>
 	);
 };
 

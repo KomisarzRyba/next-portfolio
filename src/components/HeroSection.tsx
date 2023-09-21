@@ -7,8 +7,8 @@ import {
 
 const HeroSection = () => {
 	return (
-		<div className='container h-[92vh] bg-secondary rounded-b-xl border'>
-			<div className='h-full flex items-center justify-around'>
+		<section className='container h-[92vh] bg-secondary rounded-b-xl border'>
+			<div className='flex items-center justify-around h-full'>
 				<div className='space-y-2'>
 					<h1 className='text-6xl sm:text-8xl'>
 						hi there! I{"'"}m{' '}
@@ -19,14 +19,14 @@ const HeroSection = () => {
 							>
 								<TooltipTrigger>Antek</TooltipTrigger>
 								<TooltipContent>
-									<p className='text-4xl p-4'>
+									<p className='p-4 text-4xl'>
 										👂: [aan-tech]
 									</p>
 								</TooltipContent>
 							</Tooltip>
 						</TooltipProvider>
 					</h1>
-					<h2 className='text-3xl sm:text-4xl font-light'>
+					<h2 className='text-3xl font-light sm:text-4xl'>
 						I{"'"}m a software developer
 					</h2>
 					<h2 className='text-lg font-extralight'>
@@ -36,7 +36,7 @@ const HeroSection = () => {
 				</div>
 			</div>
 			{/* <ProjectList /> */}
-		</div>
+		</section>
 	);
 };
 

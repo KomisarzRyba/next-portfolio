@@ -1,5 +1,5 @@
 import useOctokit from '@/hooks/useOctokit';
-import React, { PropsWithChildren, createContext } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 const OctokitProvider: React.FC<PropsWithChildren> = ({ children }) => {
 	const { octokit, octokitContext } = useOctokit();

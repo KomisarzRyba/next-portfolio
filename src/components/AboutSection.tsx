@@ -2,12 +2,12 @@ import TechStack from './TechStack';
 
 const AboutSection = () => {
 	return (
-		<div id='about' className='py-12 grid gap-16 grid-cols-1'>
+		<section id='about' className='grid grid-cols-1 gap-16 py-12'>
 			<div>
-				<h2 className='text-4xl pb-2 font-medium'>
+				<h2 className='pb-2 text-4xl font-medium'>
 					<span className='font-thin'>||</span> about me
 				</h2>
-				<div className='leading-8 max-w-2xl mx-auto flex flex-col h-full justify-center items-center'>
+				<div className='flex flex-col items-center justify-center h-full max-w-2xl mx-auto leading-8'>
 					<p className='py-2'>
 						I{"'"}m a passionate full-stack developer with a knack
 						for creating functional, and impactful experiences. With
@@ -32,7 +32,7 @@ const AboutSection = () => {
 				</div>
 			</div>
 			<TechStack />
-		</div>
+		</section>
 	);
 };
 
